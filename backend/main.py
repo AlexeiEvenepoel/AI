@@ -22,7 +22,13 @@ def create_app():
     app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')  # Específica para JWT
     
     # Inicializar extensiones (ASIGNA A UNA VARIABLE jwt)
-    CORS(app)
+    CORS(app, resources={
+        r"/api/*": {
+            "origins": ["http://localhost:4200"],
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        }
+    })
     init_db(app)
     jwt = JWTManager(app)  # <-- Asigna a una variable
     

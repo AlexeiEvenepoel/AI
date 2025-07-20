@@ -43,7 +43,7 @@ export default class SignInComponent {
       this.authService.login(credentials).subscribe({
         next: () => {
           this.isLoading = false;
-          this.router.navigate(['/dashboard']); // Ajusta la ruta según tu app
+          this.router.navigate(['/dashboard']); // Redirigir al panel principal
         },
         error: (error) => {
           this.isLoading = false;

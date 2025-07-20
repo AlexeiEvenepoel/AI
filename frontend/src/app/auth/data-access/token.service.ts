@@ -36,7 +36,7 @@ export class TokenService {
     }
   }
 
-  isAuthenticated(): boolean {
+  public isAuthenticated(): boolean {
     return this.hasToken() && !this.isTokenExpired();
   }
 }

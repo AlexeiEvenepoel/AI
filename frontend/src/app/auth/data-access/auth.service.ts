@@ -10,12 +10,13 @@ import {
   User,
   ApiError,
 } from '../interfaces/auth.interface';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly API_URL = 'http://localhost:5000/api'; // Ajusta tu URL base
+  private readonly API_URL = `${environment.apiUrl}/auth`; // Ajusta tu URL base
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 

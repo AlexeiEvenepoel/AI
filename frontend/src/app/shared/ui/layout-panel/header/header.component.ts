@@ -1,10 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthService } from '../../../../auth/data-access/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../../../auth/interfaces/auth.interface';
-
+import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-header-panel',
   standalone: true,
@@ -15,16 +15,23 @@ export class HeaderPanelComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  user: User | null = null;
+  // Usamos una señal para el estado del usuario
+  user: Signal<User | null> = toSignal(this.authService.currentUser$, {
+    initialValue: null,
+  });
+  isLoggingOut = false;
 
-  constructor() {
-    this.authService.currentUser$.subscribe((user) => {
-      this.user = user;
-    });
-  }
+  async logOut() {
+    if (this.isLoggingOut) return;
 
-  logOut() {
-    this.authService.logout();
-    this.router.navigate(['/auth/sign-in']);
+    this.isLoggingOut = true;
+    try {
+      await this.authService.logout();
+      this.router.navigate(['/auth/sign-in']);
+    } catch (error) {
+      console.error('Logout failed:', error);
+    } finally {
+      this.isLoggingOut = false;
+    }
   }
 }

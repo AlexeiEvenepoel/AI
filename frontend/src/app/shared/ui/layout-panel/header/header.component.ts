@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 import { UserDropdownComponent } from './components/user-dropdown.component';
 import { ToggleThemeComponent } from '../../../toggle-theme/toggle-theme.component';
@@ -8,12 +7,7 @@ import { ToggleThemeComponent } from '../../../toggle-theme/toggle-theme.compone
 @Component({
   selector: 'app-header-panel',
   standalone: true,
-  imports: [
-    CommonModule,
-    UserDropdownComponent,
-    RouterLink,
-    ToggleThemeComponent,
-  ],
+  imports: [CommonModule, UserDropdownComponent, ToggleThemeComponent],
   templateUrl: './header.component.html',
 })
 export class HeaderPanelComponent {}

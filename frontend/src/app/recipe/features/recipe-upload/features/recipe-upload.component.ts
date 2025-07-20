@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipeUploadService } from '../data-access/recipe-upload.service';
-import { ToggleThemeComponent } from '../../../../shared/toggle-theme/toggle-theme.component';
 
 @Component({
   selector: 'app-recipe-upload',
   templateUrl: './recipe-upload.component.html',
   standalone: true,
-  imports: [CommonModule, ToggleThemeComponent],
+  imports: [CommonModule],
   providers: [RecipeUploadService],
 })
 export default class RecipeUploadComponent {

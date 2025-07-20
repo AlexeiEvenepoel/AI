@@ -1,0 +1,35 @@
+<div class="flex items-center justify-center transition-all duration-300">
+  <a [routerLink]="route" class="flex flex-col items-center gap-0">
+    <!-- Logo Image (AVIF) con tamaños más grandes -->
+    <div
+      [ngClass]="{
+        'w-12 h-12': size === 'small',
+        'w-16 h-16': size === 'medium',
+        'w-24 h-24': size === 'large',
+        'w-32 h-32': size === 'xlarge'
+      }"
+      class="flex-shrink-0"
+    >
+      <img
+        [src]="logoUrl || 'logo.svg'"
+        [alt]="logoAlt || 'Logo'"
+        class="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+        [ngClass]="{ 'filter dark:brightness-110': useDarkFilter }"
+      />
+    </div>
+
+    <!-- Brand Text siempre debajo del logo -->
+    <span
+      *ngIf="showText"
+      [ngClass]="{
+        'text-base': textSize === 'small',
+        'text-lg': textSize === 'medium',
+        'text-xl font-bold': textSize === 'large'
+      }"
+      class="font-semibold whitespace-nowrap text-center transition-colors duration-300"
+      [class]="textColor || 'text-gray-900 dark:text-white'"
+    >
+      {{ brandName || "E-Shop" }}
+    </span>
+  </a>
+</div>

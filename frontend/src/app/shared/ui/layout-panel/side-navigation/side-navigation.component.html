@@ -1,0 +1,68 @@
+<aside
+  id="logo-sidebar"
+  class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+  aria-label="Sidebar"
+>
+  <div
+    class="overflow-y-auto h-full bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex flex-col"
+  >
+    <!-- Logo -->
+    <div class="py-6 px-3 border-b border-gray-200 dark:border-gray-700">
+      <app-logo
+        size="xlarge"
+        route="/panel/recipes"
+        [showText]="true"
+        textSize="large"
+        brandName="RecipeApp"
+        logoUrl="onion.avif"
+        logoAlt="RecipeApp Logo"
+        [useDarkFilter]="true"
+        class="flex justify-center"
+      ></app-logo>
+    </div>
+
+    <!-- User Info -->
+    <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+      <div class="flex flex-col items-center">
+        <span class="font-semibold text-gray-900 dark:text-white">{{
+          userName() || "Usuario"
+        }}</span>
+        <span class="text-sm text-gray-600 dark:text-gray-400">{{
+          userRole() || "Rol"
+        }}</span>
+      </div>
+    </div>
+
+    <!-- Main menu -->
+    <div class="py-4 px-3 flex-1 overflow-y-auto">
+      <ul class="space-y-2">
+        <!-- Recetas -->
+
+        <!-- Análisis de Imagen -->
+        <li>
+          <a
+            routerLink="/recipe-upload"
+            class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white"
+            >
+              <rect x="3" y="3" width="18" height="14" rx="2" />
+              <circle cx="8.5" cy="8.5" r="2.5" />
+              <polyline points="21 19 17 15 13 19 9 15 3 19" />
+            </svg>
+            <span class="ml-3">Análisis de Imagen</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>

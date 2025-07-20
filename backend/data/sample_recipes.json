@@ -1,0 +1,105 @@
+[
+  {
+    "id": 1,
+    "name": "Pollo a la Plancha con Vegetales",
+    "description": "Delicioso pollo asado acompañado de vegetales frescos",
+    "instructions": "1. Sazonar el pollo con sal y pimienta\n2. Calentar aceite en una sartén\n3. Cocinar el pollo 6-8 minutos por lado\n4. Saltear los vegetales\n5. Servir caliente",
+    "prep_time": 15,
+    "cook_time": 20,
+    "servings": 4,
+    "ingredients": [
+      { "name": "chicken", "quantity": "1 lb", "notes": "breast, boneless" },
+      { "name": "onion", "quantity": "1 medium", "notes": "sliced" },
+      {
+        "name": "pepper",
+        "quantity": "2",
+        "notes": "bell peppers, mixed colors"
+      },
+      { "name": "garlic", "quantity": "3 cloves", "notes": "minced" },
+      { "name": "oil", "quantity": "2 tbsp", "notes": "olive oil" },
+      { "name": "salt", "quantity": "to taste", "notes": "" },
+      { "name": "pepper", "quantity": "to taste", "notes": "black pepper" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ensalada de Tomate y Cebolla",
+    "description": "Ensalada fresca y ligera perfecta para acompañar",
+    "instructions": "1. Lavar y cortar los tomates en rodajas\n2. Cortar la cebolla en juliana\n3. Mezclar en un bowl\n4. Aliñar con aceite, vinagre y sal\n5. Dejar reposar 10 minutos antes de servir",
+    "prep_time": 10,
+    "cook_time": 0,
+    "servings": 4,
+    "ingredients": [
+      { "name": "tomato", "quantity": "4 large", "notes": "ripe" },
+      {
+        "name": "onion",
+        "quantity": "1 medium",
+        "notes": "red onion preferred"
+      },
+      { "name": "oil", "quantity": "3 tbsp", "notes": "olive oil" },
+      { "name": "vinegar", "quantity": "1 tbsp", "notes": "balsamic" },
+      { "name": "salt", "quantity": "to taste", "notes": "" },
+      { "name": "herbs", "quantity": "1 tsp", "notes": "dried oregano" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Arroz con Pollo",
+    "description": "Platillo tradicional con arroz, pollo y vegetales",
+    "instructions": "1. Sofreír el pollo hasta dorar\n2. Agregar cebolla y ajo\n3. Añadir el arroz y mezclar\n4. Agregar caldo caliente\n5. Cocinar a fuego bajo 20 minutos\n6. Agregar vegetales y cocinar 10 minutos más",
+    "prep_time": 20,
+    "cook_time": 35,
+    "servings": 6,
+    "ingredients": [
+      { "name": "chicken", "quantity": "2 lbs", "notes": "cut in pieces" },
+      { "name": "rice", "quantity": "2 cups", "notes": "long grain" },
+      { "name": "onion", "quantity": "1 large", "notes": "diced" },
+      { "name": "garlic", "quantity": "4 cloves", "notes": "minced" },
+      { "name": "pepper", "quantity": "1", "notes": "bell pepper, diced" },
+      { "name": "tomato", "quantity": "2 medium", "notes": "diced" },
+      { "name": "oil", "quantity": "3 tbsp", "notes": "vegetable oil" },
+      { "name": "salt", "quantity": "to taste", "notes": "" },
+      { "name": "spices", "quantity": "1 tsp each", "notes": "cumin, paprika" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Pasta con Champiñones",
+    "description": "Pasta cremosa con champiñones y hierbas",
+    "instructions": "1. Cocinar la pasta según instrucciones del paquete\n2. Saltear champiñones con ajo\n3. Agregar crema y hierbas\n4. Mezclar con la pasta\n5. Servir con queso",
+    "prep_time": 10,
+    "cook_time": 15,
+    "servings": 4,
+    "ingredients": [
+      { "name": "pasta", "quantity": "1 lb", "notes": "fettuccine or penne" },
+      { "name": "mushroom", "quantity": "8 oz", "notes": "sliced" },
+      { "name": "garlic", "quantity": "3 cloves", "notes": "minced" },
+      { "name": "cream", "quantity": "1 cup", "notes": "heavy cream" },
+      { "name": "cheese", "quantity": "1/2 cup", "notes": "parmesan, grated" },
+      { "name": "herbs", "quantity": "2 tbsp", "notes": "fresh parsley" },
+      { "name": "oil", "quantity": "2 tbsp", "notes": "olive oil" },
+      { "name": "salt", "quantity": "to taste", "notes": "" },
+      { "name": "pepper", "quantity": "to taste", "notes": "black pepper" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Sopa de Lentejas",
+    "description": "Sopa nutritiva y reconfortante con lentejas y vegetales",
+    "instructions": "1. Sofreír cebolla, ajo y zanahoria\n2. Agregar lentejas y caldo\n3. Cocinar 25 minutos\n4. Agregar especias y hierbas\n5. Cocinar 5 minutos más y servir",
+    "prep_time": 15,
+    "cook_time": 30,
+    "servings": 6,
+    "ingredients": [
+      { "name": "lentils", "quantity": "1 cup", "notes": "red or green" },
+      { "name": "onion", "quantity": "1 medium", "notes": "diced" },
+      { "name": "carrot", "quantity": "2", "notes": "diced" },
+      { "name": "garlic", "quantity": "3 cloves", "notes": "minced" },
+      { "name": "tomato", "quantity": "1 can", "notes": "diced, 14 oz" },
+      { "name": "oil", "quantity": "2 tbsp", "notes": "olive oil" },
+      { "name": "spices", "quantity": "1 tsp each", "notes": "cumin, paprika" },
+      { "name": "herbs", "quantity": "1 bay leaf", "notes": "" },
+      { "name": "salt", "quantity": "to taste", "notes": "" }
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+  <!-- El sidebar sigue siendo controlado por Flowbite con eventos personalizados -->
+  <app-side-navigation class="select-none" #sideNav />
+
+  <div class="flex flex-col min-h-screen lg:ml-[260px]">
+    <!-- Header con menú hamburguesa integrado - reorganizado para móvil con posición sticky mejorada -->
+    <nav
+      class="fixed lg:sticky top-0 left-0 right-0 lg:left-[260px] z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 p-2 shadow-sm lg:shadow-none"
+    >
+      <!-- Contenedor alineado con el contenido principal -->
+      <div class="w-full mx-auto max-w-screen-xl">
+        <!-- Fila única para navegación móvil que incluye botón hamburguesa y elementos del header -->
+        <div class="flex items-center justify-between lg:justify-end w-full">
+          <!-- Área izquierda: botón hamburguesa (visible solo en móvil) -->
+          <button
+            id="sidebar-toggle-btn"
+            data-drawer-target="logo-sidebar"
+            data-drawer-toggle="logo-sidebar"
+            aria-controls="logo-sidebar"
+            type="button"
+            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          >
+            <span class="sr-only">Open sidebar</span>
+            <svg
+              class="w-6 h-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Logo o título - visible en móvil -->
+          <div class="flex items-center lg:hidden">
+            <div class="flex items-center gap-0">
+              <img
+                src="logo.svg"
+                alt="Alexei Evn Logo"
+                class="h-8 w-auto object-contain"
+                aria-hidden="true"
+              />
+              <span
+                class="text-lg font-semibold text-gray-900 dark:text-white truncate max-w-[120px]"
+              >
+                Alexei Evn
+              </span>
+            </div>
+          </div>
+
+          <!-- Área derecha: componentes del header panel -->
+          <app-header-panel class="select-none" />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Spacer para compensar el header fixed en móvil -->
+    <div class="h-[56px] lg:h-0"></div>
+
+    <!-- Content Container con padding ajustado -->
+    <div class="flex-grow p-2 sm:p-4 mt-0 lg:mt-0">
+      <!-- Content Wrapper con padding adaptativo -->
+      <div class="mx-auto w-full max-w-screen-xl">
+        <!-- Page Header -->
+        <!-- <app-page-header class="mb-2 sm:mb-4" /> -->
+
+        <!-- Content con espaciado vertical adecuado -->
+        <div class="mt-4">
+          <router-outlet />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-auto">
+      <app-footer-panel class="select-none" />
+    </div>
+  </div>
+</div>

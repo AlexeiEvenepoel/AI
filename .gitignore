@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.env
+.env.local
+.env.development
+.env.production
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Base de datos
+*.sqlite3
+*.db
+
+# Modelo BLIP (grandes archivos binarios)
+ml/blip/model.safetensors
+ml/blip/pytorch_model.bin
+ml/blip/*.bin
+ml/blip/*.pt
+ml/blip/*.pth
+
+# Configuración
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Frontend (para cuando implementes Angular)
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+frontend/.sass-cache/
+frontend/npm-debug.log
+
+# Docker
+.docker/
+
+# OS specifics
+.DS_Store
+Thumbs.db
+
+# Data
+data/user_images/
+*.avif
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+backend/venv/
+backend/ml/

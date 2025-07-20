@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   //auth
-  //   {
-  //     path: 'auth',
-  //     loadChildren: () => import('./auth/features/auth.routes'),
-  //   },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/features/auth.routes'),
+  },
 
   //panel
   {
@@ -18,6 +18,6 @@ export const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'auth',
   },
 ];

@@ -13,46 +13,7 @@
           Sube una foto de tus ingredientes y descubre recetas increíbles
         </p>
       </div>
-
-      <!-- Theme Toggle Button -->
-      <button
-        (click)="toggleTheme()"
-        class="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-600 text-gray-800 dark:text-white p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-lg"
-        [attr.aria-label]="
-          isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
-        "
-      >
-        <i
-          [class]="
-            isDarkMode
-              ? 'fas fa-sun text-yellow-500'
-              : 'fas fa-moon text-blue-600'
-          "
-          class="text-xl"
-        ></i>
-      </button>
     </div>
-
-    <!-- Action Buttons Section -->
-    @if (hasResults) {
-    <div class="flex justify-center gap-4 mb-8">
-      <button
-        (click)="uploadAnotherImage()"
-        class="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white px-6 py-3 rounded-xl hover:from-blue-700 hover:to-blue-800 dark:hover:from-blue-600 dark:hover:to-blue-700 transition-all duration-200 font-semibold shadow-lg flex items-center"
-      >
-        <i class="fas fa-camera mr-2"></i>
-        Subir Otra Imagen
-      </button>
-
-      <button
-        (click)="resetComponent()"
-        class="bg-gradient-to-r from-gray-600 to-gray-700 dark:from-gray-500 dark:to-gray-600 text-white px-6 py-3 rounded-xl hover:from-gray-700 hover:to-gray-800 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-200 font-semibold shadow-lg flex items-center"
-      >
-        <i class="fas fa-redo mr-2"></i>
-        Reiniciar Todo
-      </button>
-    </div>
-    }
 
     <div class="grid lg:grid-cols-2 gap-8">
       <!-- Panel de Carga -->
@@ -113,21 +74,12 @@
             >
               <i class="fas fa-times"></i>
             </button>
-            <div
-              class="bg-white dark:bg-gray-700 rounded-lg p-3 mb-3 shadow-sm"
-            >
-              <p
-                class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-              >
-                {{ selectedFile?.name }}
-              </p>
-              <p class="text-xs text-gray-500 dark:text-gray-400">
-                {{ fileInfo }}
-              </p>
-            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              {{ selectedFile?.name }}
+            </p>
             <button
               (click)="$event.stopPropagation()"
-              class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium bg-white dark:bg-gray-800 px-3 py-1 rounded-lg shadow-sm border dark:border-gray-600"
+              class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium"
             >
               <i class="fas fa-edit mr-1"></i>Cambiar imagen
             </button>
@@ -147,7 +99,7 @@
         <button
           (click)="uploadImage()"
           [disabled]="!selectedFile || loading"
-          class="w-full mt-6 bg-gradient-to-r from-green-600 to-green-700 dark:from-green-500 dark:to-green-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 hover:from-green-700 hover:to-green-800 dark:hover:from-green-600 dark:hover:to-green-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl disabled:hover:shadow-lg"
+          class="w-full mt-6 bg-gradient-to-r from-green-600 to-green-700 dark:from-green-500 dark:to-green-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 hover:from-green-700 hover:to-green-800 dark:hover:from-green-600 dark:hover:to-green-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
         >
           @if (loading) {
           <i class="fas fa-spinner fa-spin mr-2"></i>Analizando imagen... }
@@ -192,17 +144,11 @@
             <i
               class="fas fa-exclamation-circle text-red-500 dark:text-red-400 mr-3 mt-1 text-xl"
             ></i>
-            <div class="flex-1">
+            <div>
               <h4 class="text-red-800 dark:text-red-300 font-semibold mb-2">
                 Error en el análisis
               </h4>
               <p class="text-red-600 dark:text-red-400">{{ error }}</p>
-              <button
-                (click)="error = null"
-                class="mt-3 text-red-700 dark:text-red-300 hover:text-red-900 dark:hover:text-red-100 text-sm font-medium"
-              >
-                <i class="fas fa-times mr-1"></i>Cerrar
-              </button>
             </div>
           </div>
         </div>
@@ -252,16 +198,11 @@
                 class="fas fa-carrot text-orange-600 dark:text-orange-400 mr-2"
               ></i>
               Ingredientes Detectados
-              <span
-                class="ml-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 text-sm px-2 py-1 rounded-full"
-              >
-                {{ analysis.ingredients.length }}
-              </span>
             </h3>
             <div class="flex flex-wrap gap-3 mb-6">
               @for (ingredient of analysis.ingredients; track ingredient) {
               <span
-                class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-800/50 dark:to-green-700/50 text-green-800 dark:text-green-200 px-4 py-2 rounded-full font-medium capitalize shadow-sm border dark:border-green-700 hover:shadow-md transition-shadow"
+                class="bg-gradient-to-r from-green-100 to-green-200 dark:from-green-800/50 dark:to-green-700/50 text-green-800 dark:text-green-200 px-4 py-2 rounded-full font-medium capitalize shadow-sm border dark:border-green-700"
               >
                 <i class="fas fa-leaf mr-2"></i>{{ ingredient }}
               </span>
@@ -279,28 +220,18 @@
                   ></i>
                   Nivel de Confianza
                 </span>
-                <span
-                  [class]="getConfidenceTextColor()"
-                  class="font-bold text-lg"
+                <span class="font-bold text-lg text-gray-800 dark:text-white"
+                  >{{ getConfidencePercentage() }}%</span
                 >
-                  {{ getConfidencePercentage() }}%
-                </span>
               </div>
               <div
                 class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3 overflow-hidden"
               >
                 <div
                   [ngClass]="getConfidenceColor()"
-                  class="h-3 rounded-full transition-all duration-1000 ease-out shadow-sm"
+                  class="h-3 rounded-full transition-all duration-1000 ease-out"
                   [style.width.%]="getConfidencePercentage()"
                 ></div>
-              </div>
-              <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                @if (getConfidencePercentage() >= 80) { Excelente precisión en
-                la detección } @else if (getConfidencePercentage() >= 60) {
-                Buena precisión en la detección } @else if
-                (getConfidencePercentage() >= 40) { Precisión moderada en la
-                detección } @else { Baja precisión - considera tomar otra foto }
               </div>
             </div>
           </div>
@@ -319,18 +250,12 @@
       >
         <i class="fas fa-utensils text-green-600 dark:text-green-400 mr-4"></i>
         Recetas Sugeridas
-        <span
-          class="ml-3 bg-green-100 dark:bg-green-800/50 text-green-800 dark:text-green-200 text-lg px-3 py-1 rounded-full"
-        >
-          {{ suggestedRecipes.length }}
-        </span>
       </h2>
 
       <div class="grid md:grid-cols-2 gap-6">
-        @for (recipe of suggestedRecipes; track recipe.id; let i = $index) {
+        @for (recipe of suggestedRecipes; track recipe.id) {
         <div
-          class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-6 border border-orange-100 dark:border-orange-800/30 hover:shadow-lg transition-all duration-300 cursor-pointer group animate-fade-in-up"
-          [style.animation-delay]="i * 100 + 'ms'"
+          class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-6 border border-orange-100 dark:border-orange-800/30 hover:shadow-lg transition-all duration-300 cursor-pointer group"
         >
           <div class="flex items-start justify-between mb-4">
             <h3
@@ -339,7 +264,7 @@
               {{ recipe.name }}
             </h3>
             <button
-              class="text-gray-400 dark:text-gray-500 hover:text-orange-500 dark:hover:text-orange-400 transition-colors p-1 rounded-full hover:bg-orange-100 dark:hover:bg-orange-900/30"
+              class="text-gray-400 dark:text-gray-500 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
             >
               <i class="fas fa-bookmark text-xl"></i>
             </button>
@@ -353,30 +278,26 @@
             <div
               class="flex items-center space-x-6 text-sm text-gray-600 dark:text-gray-400"
             >
-              @if (recipe.time) {
-              <span
-                class="flex items-center bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-lg"
-              >
+              @if (recipe.prep_time || recipe.cook_time) {
+              <span class="flex items-center">
                 <i
                   class="fas fa-clock mr-2 text-blue-500 dark:text-blue-400"
                 ></i>
-                {{ recipe.time }}
+                {{ (recipe.prep_time || 0) + (recipe.cook_time || 0) }} min
               </span>
-              } @if (recipe.difficulty) {
-              <span
-                class="flex items-center bg-gray-50 dark:bg-gray-700/50 px-2 py-1 rounded-lg"
-              >
+              } @if (recipe.servings) {
+              <span class="flex items-center">
                 <i
-                  class="fas fa-chart-bar mr-2"
-                  [ngClass]="getDifficultyIcon(recipe.difficulty)"
+                  class="fas fa-users mr-2 text-green-500 dark:text-green-400"
                 ></i>
-                {{ recipe.difficulty }}
+                {{ recipe.servings }} personas
               </span>
               }
             </div>
 
             <button
-              class="bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-600 dark:to-red-600 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 dark:hover:from-orange-700 dark:hover:to-red-700 transition-all duration-200 font-semibold text-sm shadow-md hover:shadow-lg"
+              (click)="openRecipeModal(recipe)"
+              class="bg-gradient-to-r from-orange-500 to-red-500 dark:from-orange-600 dark:to-red-600 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 dark:hover:from-orange-700 dark:hover:to-red-700 transition-all duration-200 font-semibold text-sm shadow-md"
             >
               Ver Receta
               <i class="fas fa-arrow-right ml-2"></i>
@@ -388,22 +309,177 @@
     </div>
     }
   </div>
+
+  <!-- Recipe Modal -->
+  @if (showModal && selectedRecipe) {
+  <div class="fixed inset-0 z-50 overflow-y-auto" (click)="closeModal()">
+    <div
+      class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+    >
+      <div
+        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      ></div>
+
+      <div
+        class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:p-6"
+        (click)="$event.stopPropagation()"
+      >
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
+              {{ selectedRecipe.name }}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 mt-2">
+              {{ selectedRecipe.description }}
+            </p>
+          </div>
+          <button
+            (click)="closeModal()"
+            class="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
+          >
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+
+        <!-- Recipe Info Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          @if (selectedRecipe.prep_time) {
+          <div
+            class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 text-center"
+          >
+            <i
+              class="fas fa-knife-kitchen text-2xl text-blue-600 dark:text-blue-400 mb-2"
+            ></i>
+            <h4 class="font-semibold text-gray-800 dark:text-white">
+              Preparación
+            </h4>
+            <p class="text-blue-600 dark:text-blue-400 font-bold">
+              {{ selectedRecipe.prep_time }} min
+            </p>
+          </div>
+          } @if (selectedRecipe.cook_time) {
+          <div
+            class="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-4 text-center"
+          >
+            <i
+              class="fas fa-fire-burner text-2xl text-orange-600 dark:text-orange-400 mb-2"
+            ></i>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Cocción</h4>
+            <p class="text-orange-600 dark:text-orange-400 font-bold">
+              {{ selectedRecipe.cook_time }} min
+            </p>
+          </div>
+          } @if (selectedRecipe.servings) {
+          <div
+            class="bg-green-50 dark:bg-green-900/20 rounded-xl p-4 text-center"
+          >
+            <i
+              class="fas fa-users text-2xl text-green-600 dark:text-green-400 mb-2"
+            ></i>
+            <h4 class="font-semibold text-gray-800 dark:text-white">
+              Porciones
+            </h4>
+            <p class="text-green-600 dark:text-green-400 font-bold">
+              {{ selectedRecipe.servings }} personas
+            </p>
+          </div>
+          }
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <!-- Ingredients Section -->
+          <div>
+            <h4
+              class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center"
+            >
+              <i
+                class="fas fa-list-ul text-green-600 dark:text-green-400 mr-3"
+              ></i>
+              Ingredientes
+            </h4>
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-6">
+              <div class="space-y-3">
+                @for (ingredient of selectedRecipe.ingredients; track
+                ingredient.id) {
+                <div
+                  class="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span
+                      class="font-medium text-gray-800 dark:text-white capitalize"
+                    >
+                      {{ ingredient.ingredient.name }}
+                    </span>
+                    @if (ingredient.notes) {
+                    <span class="text-gray-500 dark:text-gray-400 text-sm">
+                      ({{ ingredient.notes }})
+                    </span>
+                    }
+                  </div>
+                  <span
+                    class="font-semibold text-orange-600 dark:text-orange-400"
+                  >
+                    {{ ingredient.quantity }}
+                  </span>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Instructions Section -->
+          <div>
+            <h4
+              class="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center"
+            >
+              <i
+                class="fas fa-clipboard-list text-blue-600 dark:text-blue-400 mr-3"
+              ></i>
+              Instrucciones
+            </h4>
+            <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-6">
+              <div class="space-y-4">
+                @for (instruction of
+                formatInstructions(selectedRecipe.instructions); track $index) {
+                <div
+                  class="flex items-start space-x-4 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm"
+                >
+                  <div
+                    class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
+                  >
+                    {{ $index + 1 }}
+                  </div>
+                  <p
+                    class="text-gray-700 dark:text-gray-300 leading-relaxed flex-1"
+                  >
+                    {{ cleanInstruction(instruction) }}
+                  </p>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="mt-8 flex justify-end space-x-4">
+          <button
+            (click)="closeModal()"
+            class="px-6 py-3 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-xl hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors font-semibold"
+          >
+            Cerrar
+          </button>
+          <button
+            class="px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 dark:from-green-500 dark:to-green-600 text-white rounded-xl hover:from-green-700 hover:to-green-800 dark:hover:from-green-600 dark:hover:to-green-700 transition-all duration-200 font-semibold"
+          >
+            <i class="fas fa-heart mr-2"></i>
+            Guardar Receta
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
 </div>
-
-<!-- Agregar estilos de animación -->
-<style>
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-  }
-</style>
